@@ -7,7 +7,7 @@ include 'block/header.php';?>
     <h2>Ссылки на ресурсы:</h2>
     <br>
 <?php
-   include_once 'block/conect_db.php';
+    include_once 'block/conect_db.php';
 
     echo <<<END
     <table class="table  table-responsive table-hover">
@@ -28,7 +28,6 @@ include 'block/header.php';?>
         }
     echo '</tbody>';
     echo '</table>';
-  
     include_once 'block/footer.php';
 ?>
 </body>
