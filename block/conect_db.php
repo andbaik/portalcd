@@ -1,7 +1,7 @@
 <?php
 $user = 'root';
     $password = '';
-    $db = 'portal';
+    $db = 'portalcd';
     $host = 'localhost';
 
     $dsn = 'mysql:host='.$host.';dbname='.$db;

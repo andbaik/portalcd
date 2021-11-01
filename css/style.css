@@ -17,6 +17,7 @@ a:hover{
 body{
     font-family: 'IBM Plex Sans', sans-serif;
     background: #F3F3F3;
+    color: #818286;
 }
 
 
@@ -42,6 +43,7 @@ h1{
     
     font-size: 5vh;
     font-weight: 700;
+    color: #818286;
 }
 img {
     width: 100%;
@@ -108,10 +110,6 @@ img {
         transform: translateY(-10px);
     }
 
-
-
-
-
 footer{
     width: 80%;
     height: 10Vh;
@@ -123,8 +121,10 @@ footer{
 
 footer > p{
     color: #838282;
-
+    
 }
+
+
 
 
 @font-face {
