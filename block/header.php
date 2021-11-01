@@ -15,7 +15,7 @@
             <img src="img/logo_p.png" alt="Logo">
         </div>
         <div class="head">
-           <h1>Центральная дирекция управления движением</h1>
+            <h1>Центральная дирекция управления движением</h1>
         </div>
         <div class="btn btn-danger">
             Вход

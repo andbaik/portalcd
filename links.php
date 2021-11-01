@@ -1,6 +1,7 @@
 <?php
 $title = 'Полезные ссылки';
-include 'block/header.php';?>
+include 'block/header.php';
+?>
 <body>
 
 <div class="main">
@@ -8,17 +9,15 @@ include 'block/header.php';?>
     <br>
 <?php
     include_once 'block/conect_db.php';
-
-    echo <<<END
-    <table class="table  table-responsive table-hover">
-        <thead class="table-secondary">
-            <tr>
-                <th>Короткое название </th>
-                <th>Полное название автоматизированной системы </th>
-            </tr>
-        </thead>
-        <tbody>
-    END; 
+    echo '<table class="table  table-responsive table-hover">';
+    echo '<thead class="table-secondary">';
+    echo '<tr>';
+    echo '<th>Короткое название </th>';
+    echo '<th>Полное название автоматизированной системы </th>';
+            echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+        
     $query = $pdo->query('SELECT * FROM `links`');
     while($row = $query->fetch(PDO::FETCH_OBJ)){
         echo '<tr>';
@@ -28,7 +27,7 @@ include 'block/header.php';?>
         }
     echo '</tbody>';
     echo '</table>';
-    include_once 'block/footer.php';
+    include 'block/footer.php';
 ?>
 </body>
 </html>

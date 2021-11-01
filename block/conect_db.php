@@ -1,5 +1,5 @@
 <?php
-$user = 'root';
+    $user = 'root';
     $password = '';
     $db = 'portal';
     $host = 'localhost';

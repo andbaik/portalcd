@@ -22,7 +22,7 @@ include_once 'block/header.php';?>
         </div>
     </div>
 <?php
-    include_once 'block/footer.php';
+    include 'block/footer.php';
 ?>
 </body>
 </html>
