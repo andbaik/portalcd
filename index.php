@@ -6,11 +6,11 @@ include_once 'block/header.php';?>
         <div class="wrapper">
             <div class="row">
                 <a href="adress.php"> Адресная книга ЦД </a>
-                <a href="links.php">Перечень ресурсов (ссылки)</a>
+                <a href="link.php">Перечень ресурсов (ссылки)</a>
                 <a href="documents.php">Нормативные документы</a>
             </div>
             <div class="row">
-                <a href="#">Контролька отдела</a>
+                <a href="todo.php">Контролька отдела</a>
                 <a href="#">Контроль мероприятий</a>
                 <a href="#">Талоны по безопасности</a>
             </div>

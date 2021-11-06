@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main  {
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+    background: #aca3a3;
+    margin-top: 50px;
+}
+
+.main > .row{
+    display: flex;
+    justify-content: space-between;
+    height: 37vh;
+    position: relative;
+}
+
+.main > .row .col_v{
+display: flex;
+justify-content: center; 
+align-items: center;
+border: 2px solid red;
+}
+
+.main > .row .col {
+    width: 45%;
+    border: 2px solid red;
+}
+.main > .row .col_v {
+    width: 30px;
+}
+.main > .row p{
+    transform: rotate(-90deg);
+    background: greenyellow;
+    position: absolute;
+    vertical-align:middle;
+    
+}
+.main > .row_f{
+    display: flex;
+    justify-content: space-around;
+}
