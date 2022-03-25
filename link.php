@@ -12,17 +12,23 @@ include 'block/header.php';
     echo '<table class="table  table-responsive table-hover">';
 
         echo '<tbody>';
-        
+  ?>      
+   <?php 
     $query = $pdo->query('SELECT * FROM `links`');
     while($row = $query->fetch(PDO::FETCH_OBJ)){
-        echo '<tr>';
-        echo '<td> <a href="' . $row->link .'">' . $row->shot_name .'</a> </td>';
-        echo '<td> <a href="' . $row->link .'">' . $row->nameLink .'</a> </td>';
-        echo '</tr>';
-        }
-    echo '</tbody>';
-    echo '</table>';
-    include 'block/footer.php';
+	$html .= "
+        <tr href= \"{$row->link} \" target=\"_blank\" >
+            <td> <a href= \" {$row->link} \" target=\"_blank\"> {$row->shot_name} </a> </td> 
+            <td> <a href= \"{$row->link} \" target=\"_blank\"> {$row->nameLink} </a> </td>
+        </tr>
+        ";};
+
+    echo $html;
+
 ?>
+    </tbody>
+    </table>
+
+<?=include_once 'block/footer.php';?>
 </body>
 </html>
