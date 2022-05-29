@@ -261,6 +261,13 @@ form button:hover{
     flex-direction: column;
 }
 
+.error-mess {
+    color: #de7474;
+    margin: 10px 0;
+    font-weight: 600;
+    display: none;
+}
+
 
 /*----404 style----*/
 #img404{

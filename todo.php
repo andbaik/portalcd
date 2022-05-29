@@ -20,14 +20,14 @@ include_once("block/header.php"); ?>
                             <table class="table" id="todo">
                                 <?php
                                 include_once 'block/conect_db.php';
-                                $query = $pdo->query('SELECT * FROM `todo` WHERE `zone` = 1');
+                                $query = $pdo->query('SELECT * FROM `todo` WHERE `zone` = 1 AND `archive` = 0');
                                 while ($row = $query->fetch(PDO::FETCH_OBJ)) {
                                     $html .= "
                                             <tr>
                                                 <td> {$row->task}  {$row->date}  {$row->who}  {$row->number}  {$row->note}</td> 
                                                 <td>   <a href='../edit_todo.php?edit=1&id={$row->id}&section={$row->zone}' . ><i class='fa-solid fa-pencil'></i></..></td>
-                                                <td><i class='fa-solid fa-check'></i></td>
-                                                <td><i class='fa-solid fa-trash-can'></i></td>
+                                                <td> <a href='../edit_todo.php?edit=4&id={$row->id}&section={$row->zone}'> <i class='fa-solid fa-check'></i></a></td>
+                                                <td> <a href='../edit_todo.php?edit=3&id={$row->id}&section={$row->zone}'> <i class='fa-solid fa-trash-can'></i></a></td>
                                             </tr>
                                             ";
                                 };

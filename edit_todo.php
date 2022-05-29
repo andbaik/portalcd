@@ -3,16 +3,31 @@ $edit = $_GET['edit'];
 $id = $_GET['id'];
 $section = $_GET['section'];
 
-//print_r ('Cection =' . $section);
-//if ($edit == 1)
-//    echo "Будем редактировать строку с номером $id";
-
-//else
- //   echo "Редактировать не будем";
+switch ($edit){
+    case '1':
+        $title = 'Редактирование записи';
+        $btn_edit = 'Исправить';
+        break;
+    case '2':
+        $title = 'Добавление записи';
+        $btn_edit = 'Добавить';
+        break;
+    case '3':
+        $title = 'Удалить запись';
+        $btn_edit = 'Удалить';
+        break;
+    case '4':
+        $title = 'Переместить в архив';
+        $btn_edit = 'Архив';
+        break;
+    default:
+        $title = 'Что-то пошло не так!';
+        $btn_edit = 'Сообщить администратору';
+        break;
+     }
 ?>
 
 <?php
-$title = $edit == 1 ? 'Редактирование записи' : 'Добавление записи';
 
 include 'block/header.php';
 ?>
@@ -26,22 +41,22 @@ include 'block/header.php';
     ?>
     <div class="container">
         <h1><?=$title?></h1>
-
+                    
         <form>
         <label for="task">Задание</label>
-            <input type="text" name="task" id="task" value="<?=$row->task?>">
+            <input type="text" name="task" id="task" <?php echo $edit == 1 || $edit == 2 ? 'value = "' : 'placeholder = "'?> <?=$row->task?>">
 
             <label for="date">Дата</label>
-            <input type="date" name="date" id="date" value="<?=$row->date?>">
+            <input type="date" name="date" id="date" value = "<?=$row->date?>">
 
             <label for="who">Исполнитель</label>
-            <input type="text" name="who" id="who" value="<?=$row->who?>">
+            <input type="text" name="who" id="who" <?php echo $edit == 1 || $edit == 2 ? 'value = "' : 'placeholder = "'?><?=$row->who?>">
 
             <label for="number">Номер документа</label>
-            <input type="text" name="number" id="number" value="<?=$row->number?>">
+            <input type="text" name="number" id="number" <?php echo $edit == 1 || $edit == 2 ? 'value = "' : 'placeholder = "'?><?=$row->number?>">
 
             <label for="note">Где сейчас</label>
-            <input type="note" name="note" id="note" value="<?=$row->note?>">
+            <input type="note" name="note" id="note" <?php echo $edit == 1 || $edit == 2 ? 'value = "' : 'placeholder = "'?><?=$row->note?>">
 
 
             <div class="select">
@@ -55,10 +70,18 @@ include 'block/header.php';
                 </div>
             </div>
 
+            <?php
+                if ($edit == 4){ ?>
+                    <label for="date_arch">Дата перемещения в архив</label>
+                    <input type="text" name="date_arch" id="date_arch" value = "<?=date("d.m.Y")?>">
+
+                <?php } ?>
+
 
 <div class="info">
             <div class="error-mess" id="error-block"></div>
-            <button type="button" id="edit_todo"><?php echo $edit==1 ? "Исправить" : "Добавить"?></button>
+            <button type="button" id="edit_todo"><?=$btn_edit?></button>
+            <button type="button" id="history-button"></button>
 </div>
 
         </form>
@@ -82,6 +105,7 @@ include 'block/header.php';
             let number = $('#number').val();
             let note = $('#note').val();
             let zone = $('#zone:checked').val(); //берем значение активной радиокнопки
+            let date_arch = $('#date_arch').val();
             console.log (zone, id, who);
 
             $.ajax({
@@ -96,7 +120,8 @@ include 'block/header.php';
                     'who': who,
                     'number': number,
                     'note': note,
-                    'zone': zone
+                    'zone': zone,
+                    'date_arch' : date_arch
                 },
                 dataType: 'html',
                 success: function(data) {
@@ -114,6 +139,11 @@ include 'block/header.php';
                     }
                 }
             });
+        });
+
+        /*----Кнопка назад ----*/
+        document.getElementById('history-button').addEventListener('click', () => {
+            history.back();
         });
     </script>
 </body>
